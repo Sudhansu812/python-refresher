@@ -49,6 +49,7 @@ def append_to_file():
 def write_binary_file():
     with open(bin_file, "wb") as f:
         f.write(b"\x01\x02\x03")
+        f.close()
 
 def read_binary_file():
     with open(bin_file, "rb") as f:
