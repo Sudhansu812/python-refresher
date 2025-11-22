@@ -12,3 +12,9 @@ if __name__ == '__main__':
 
     print('\n------Control Flow------')
     pb.control_flow()
+
+    print('\n------Functions------')
+    pb.functions()
+
+    print('\n------Built-in Functions------')
+    pb.built_in_functions()

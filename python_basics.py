@@ -36,7 +36,6 @@ def basic_operations():
     print(f'Exponent: {x ** y}')
     print(f'Modulus: {x % y}')
 
-
 def string_operations():
     name = "John Doe"  # string
     print(f'name: {name}')
@@ -248,7 +247,10 @@ def control_flow():
     else:
         msg = "Smaller than 5"
 
+    print(f'If else: {msg}')
+
     status = "adult" if x >= 18 else "juvenile"
+    print(f'Status: {status}')
 
     # Loops
     for i in range(5):
@@ -276,6 +278,99 @@ def control_flow():
         print(f'Loop-else: {i}')
     else:
         print('Loop-else Complete')
+
+# Functions
+def functions():
+    print(f'Sum Function add(a, b): {add(12, 2)}')
+    print(f'Default Argument -- power(a, b=2) without default argument power(2): {power(2)}')
+    print(f'Default Argument -- power(a, b=2) with both arguments power(2, 3): {power(2, 3)}')
+    print(f'Passing arguments using keyword -- display(name, age) calling as display(age=52, name= "Bob"): {display(age=52, name= "Bob")}')
+    print(f'Variable Positional Arguments - Passing undefined number of arguments using *args -- sum_all(*nums) :: sum_all(1, 2, 3, 4, 5): {sum_all(1, 2, 3 , 4, 5)}')
+    print(f'Variable Keyword Arguments - Passing undefined number of arguments with a keyword for each using *kwargs -- show_info(**info) :: show_info(name="John", age=26): {show_info(name="John", age=26)}')
+    print(f'Lambda Function -- square = lambda x: x * x :: square(2): {square(2)} ')
+    print(f'Multiple return -- return a, b: {stats(1, 4)}')
+    inc()
+    inc()
+    print(f'Global variables must be defined outside and inside the function we should append the global keyword:: after two calls: {counter}')
+
+def add(a, b):
+    return a + b
+
+# Default Arguments
+def power(base, exp = 2):
+    return base ** exp
+
+# Keyword arguments
+def display(name, age):
+    print(f'Name: {name}, Age: {age}')
+
+# *args (Variable Positional Arguments)
+def sum_all(*nums):
+    return sum(nums)
+
+# **kwargs (Variable Keyword Arguments)
+def show_info(**info):
+    return info
+
+# Lambda Function
+square = lambda x: x * x
+
+# Multiple Return Values
+def stats(a, b):
+    return a+b, a-b
+
+# Global Keywork
+# NOTE: While we can access the counter from inside  the function without the global keyword, we can NOT update the value without telling the interpreter to find variable counter in the global scope.
+# It has nothing to do with immutability, but rather when you try to update a non-global variable from inside a function, it would try to find the local definition of the variable and fail
+counter = 0
+def inc():
+    global counter
+    counter += 1
+
+def built_in_functions():
+    test_list = [1, 2, 3, 4, 5]
+    print(f'Length of list:: len(test_list): {len(test_list)}')
+
+    print(f'Range object:: range(5): {range(5)}')
+    print(f'Range to list:: list(range(2,6)): {list(range(2,6))}')
+
+    # enumerate()
+    items = ["a", "b", "c"]
+    for idx, val in enumerate(items):
+        print(f'Index: {idx}, Value: {val}')
+
+    test_names = ["Alice", "Bob", "Charlie"]
+    test_ages = [21, 23, 22]
+    paired = list(zip(test_names, test_ages))
+    print(f'Pair two lists as list of tuples: list(zip(test_names, test_ages)): {paired}')
+
+    test_nums = [2, 3, 4]
+    double_test_nums = list(map(lambda x: x * 2, test_nums))
+    print(f'Using map(<fn>, <iterable>) Double two lists as list of numbers: {double_test_nums}')
+
+    test_nums_for_sorting = [3, 6, 1, 2, 4]
+    sorted_test_nums = sorted(test_nums_for_sorting)
+    reverse_sorted_test_nums = sorted(test_nums_for_sorting, reverse=True)
+    print(f'Sorted array using sorted(arr): {sorted_test_nums}')
+    print(f'Descending Sorted array using sorted(arr, reverse=True): {reverse_sorted_test_nums}')
+
+    boolean_values = [True, False, False, True]
+    print(f'Are there any true in the list using any(iterable): {any(boolean_values)}')
+    print(f'Are all the values true in the list using all(iterable): {all(boolean_values)}')
+    print(f'Min, max and sum using the min(itr), max(itr) and sum(itr): min={min(test_nums)}, max={max(test_nums)}, sum={sum(test_nums)}')
+    print(f'Datatype using type(): {type(test_nums)}')
+    print(f'Absolute, round and dividend-mod using abs(-10), round(3.141, 2) and divmod(10, 3) (i.e. a/b): Absolute: {abs(-10)}, Rounded: {round(3.141, 2)}, Div-Mod: {divmod(10, 3)}')
+    print(f'Character using number chr(65): {chr(65)}')
+    print(f"Value of the character using ord('A'): {ord('A')}")
+
+
+
+
+
+
+
+
+
 
 
 
