@@ -1,6 +1,8 @@
 import python_basics as pb
 import modules_and_packages as mp
 import fileio as fio
+import error_handling as er
+import object_oriented_programming as oop
 
 class BColors:
     HEADER = '\033[95m'
@@ -15,6 +17,9 @@ class BColors:
 
 def print_msg(msg: str):
     print(f'{BColors.HEADER}{msg}{BColors.ENDC}')
+
+def print_nav(msg: str):
+    print(f'{BColors.OKCYAN}{msg}{BColors.ENDC}')
 
 if __name__ == '__main__':
     print_msg('------Basic Operations------')
@@ -61,3 +66,16 @@ if __name__ == '__main__':
     fio.append_to_file()
     fio.write_binary_file()
     fio.read_binary_file()
+
+    print_msg('\n------Error Handling------')
+    print_nav('Refer to error_handing.py for better understanding of syntax and usages.')
+    er.basic_error_handling()
+    er.multiple_exception_handling()
+    er.catch_all_exception()
+    er.try_catch_else()
+    er.try_catch_finally()
+    er.custom_exception_handling()
+
+    print_msg('\n------Object Oriented Programming------')
+    oop.access_person()
+    oop.class_with_static_methods()
